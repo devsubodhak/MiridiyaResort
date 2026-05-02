@@ -1,4 +1,4 @@
 @echo off
-cd /d "D:\Miridiya Resort & Resturent"
-npx next dev
+cd /d "D:\MiridiyaResort"
+npm run dev
 pause
