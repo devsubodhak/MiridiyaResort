@@ -41,7 +41,7 @@ export default function Resort() {
       {/* PAGE HERO */}
       <section className="relative pt-32 pb-20 md:pt-44 md:pb-32 bg-forest-dark flex items-center justify-center text-center">
         <div className="absolute inset-0 opacity-20">
-          <ImagePlaceholder label="[RESORT-HERO]" className="h-full w-full" aspectRatio=" hero" />
+          <ImagePlaceholder label="[RESORT-HERO]" className="h-full w-full" aspectRatio="hero" />
         </div>
         <div className="relative z-10 container mx-auto px-4">
           <h1 className="text-4xl md:text-6xl lg:text-7xl text-white mb-6">Miridiya Holiday Resort</h1>
