@@ -31,16 +31,18 @@ export default function Restaurant() {
   return (
     <div className="flex flex-col w-full">
       {/* PAGE HERO */}
-      <section className="relative pt-32 pb-20 md:pt-44 md:pb-32 bg-forest-dark flex items-center justify-center text-center">
+      <section className="relative h-[50vh] min-h-[450px] md:min-h-[550px] bg-forest-dark flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <ImagePlaceholder label="[RESTAURANT-HERO]" className="h-full w-full" aspectRatio="hero" />
         </div>
         <div className="relative z-10 container mx-auto px-4">
-          <Reveal>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl text-white mb-6 uppercase tracking-widest">Miridiya Restaurant</h1>
-            <p className="text-xl md:text-2xl text-gold-light font-playfair italic leading-relaxed">
-              "Honest food. Local spices. Sri Lankan soul."
-            </p>
+          <Reveal width="100%">
+            <div className="flex flex-col items-center justify-center text-center">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl text-white mb-6 uppercase tracking-widest">Miridiya Restaurant</h1>
+              <p className="text-xl md:text-2xl text-gold-light font-playfair italic leading-relaxed max-w-2xl">
+                "Honest food. Local spices. Sri Lankan soul."
+              </p>
+            </div>
           </Reveal>
         </div>
       </section>

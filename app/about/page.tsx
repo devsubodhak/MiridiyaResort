@@ -14,16 +14,18 @@ export default function About() {
   return (
     <div className="flex flex-col w-full">
       {/* PAGE HERO */}
-      <section className="relative pt-32 pb-20 md:pt-44 md:pb-32 bg-forest-dark flex items-center justify-center text-center overflow-hidden">
+      <section className="relative h-[50vh] min-h-[450px] md:min-h-[550px] bg-forest-dark flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <ImagePlaceholder label="[ABOUT-HERO]" className="h-full w-full" aspectRatio="hero" />
         </div>
         <div className="relative z-10 container mx-auto px-4">
-          <Reveal>
-            <h1 className="text-4xl md:text-7xl text-white mb-6 uppercase tracking-widest">Our Story</h1>
-            <p className="text-xl text-cream/80 max-w-2xl mx-auto font-playfair italic leading-relaxed">
-              "In Sinhala, 'Miridiya' means cool water — an apt name for a place born beside the Kelani River."
-            </p>
+          <Reveal width="100%">
+            <div className="flex flex-col items-center justify-center text-center">
+              <h1 className="text-4xl md:text-7xl text-white mb-6 uppercase tracking-widest">Our Story</h1>
+              <p className="text-xl text-cream/80 max-w-2xl mx-auto font-playfair italic leading-relaxed">
+                "In Sinhala, 'Miridiya' means cool water — an apt name for a place born beside the Kelani River."
+              </p>
+            </div>
           </Reveal>
         </div>
       </section>

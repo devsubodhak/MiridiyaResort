@@ -72,6 +72,7 @@ export default function Activities() {
       id: "CANYONING",
       title: "Canyoning",
       label: "[ACT-CANYONING]",
+      src: "/canyoning.jpg",
       desc: "Navigate streams, jump into natural rock pools, and explore the canyon terrain of the Kelani valley.",
       duration: "Half day",
       difficulty: "Moderate",
@@ -96,31 +97,24 @@ export default function Activities() {
       duration: "2–3 hours",
       difficulty: "Easy",
       icon: Map
-    },
-    {
-      id: "BOAT",
-      title: "Boat Riding",
-      label: "[ACT-BOAT]",
-      desc: "Gentle boat rides along the Kelani River offer scenic views of the valley and surrounding rainforest.",
-      duration: "1–2 hours",
-      difficulty: "Easy",
-      icon: Waves
     }
   ];
 
   return (
     <div className="flex flex-col w-full">
       {/* PAGE HERO */}
-      <section className="relative pt-32 pb-20 md:pt-44 md:pb-32 bg-forest-dark flex items-center justify-center text-center overflow-hidden">
+      <section className="relative h-[50vh] min-h-[450px] md:min-h-[550px] bg-forest-dark flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <ImagePlaceholder label="[ACTIVITIES-HERO]" className="h-full w-full" aspectRatio="hero" />
         </div>
         <div className="relative z-10 container mx-auto px-4">
-          <Reveal>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl text-white mb-6 uppercase tracking-widest">Experiences & Adventures</h1>
-            <p className="text-xl md:text-2xl text-cream/80 max-w-2xl mx-auto font-playfair italic leading-relaxed">
-              Kithulgala is Sri Lanka's adventure capital — and Miridiya is your gateway to it all.
-            </p>
+          <Reveal width="100%">
+            <div className="flex flex-col items-center justify-center text-center">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl text-white mb-6 uppercase tracking-widest">Experiences & Adventures</h1>
+              <p className="text-xl md:text-2xl text-cream/80 max-w-2xl mx-auto font-playfair italic leading-relaxed">
+                Kithulgala is Sri Lanka's adventure capital — and Miridiya is your gateway to it all.
+              </p>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -138,10 +132,12 @@ export default function Activities() {
       {/* ACTIVITY CARDS */}
       <section className="py-20 md:py-32 bg-cream">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+          <div className="flex flex-wrap justify-center gap-16 lg:gap-20">
             {activities.map((act, i) => (
               <Reveal key={act.id} delay={i * 0.1}>
-                <ActivityCard {...act} />
+                <div className="w-full max-w-md">
+                  <ActivityCard {...act} />
+                </div>
               </Reveal>
             ))}
           </div>

@@ -42,16 +42,18 @@ export default function Resort() {
   return (
     <div className="flex flex-col w-full">
       {/* PAGE HERO */}
-      <section className="relative pt-32 pb-20 md:pt-44 md:pb-32 bg-forest-dark flex items-center justify-center text-center">
+      <section className="relative h-[50vh] min-h-[450px] md:min-h-[550px] bg-forest-dark flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <ImagePlaceholder label="[RESORT-HERO]" className="h-full w-full" aspectRatio="hero" />
         </div>
         <div className="relative z-10 container mx-auto px-4">
-          <Reveal>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl text-white mb-6">Miridiya Holiday Resort</h1>
-            <p className="text-lg md:text-xl text-cream/80 max-w-2xl mx-auto font-playfair italic leading-relaxed">
-              A peaceful riverside retreat in Nawata, Yatiyantota — your home base for exploring Kithulgala's wonders or simply unwinding in nature.
-            </p>
+          <Reveal width="100%">
+            <div className="flex flex-col items-center justify-center text-center">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl text-white mb-6 max-w-4xl">Miridiya Holiday Resort</h1>
+              <p className="text-lg md:text-xl text-cream/80 max-w-2xl font-playfair italic leading-relaxed">
+                A peaceful riverside retreat in Nawata, Yatiyantota — your home base for exploring Kithulgala's wonders or simply unwinding in nature.
+              </p>
+            </div>
           </Reveal>
         </div>
       </section>
