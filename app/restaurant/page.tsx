@@ -1,3 +1,5 @@
+"use client";
+
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import ReservationForm from "@/components/ReservationForm";
 import { ArrowRight, UtensilsCrossed, Leaf, Coffee, Globe, Info } from "lucide-react";

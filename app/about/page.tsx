@@ -1,3 +1,5 @@
+"use client";
+
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import { Facebook, Phone, Mail, MapPin, ExternalLink, Leaf, Heart, Wind } from "lucide-react";
 import { Reveal } from "@/components/Reveal";

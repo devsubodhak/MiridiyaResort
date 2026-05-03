@@ -1,3 +1,5 @@
+"use client";
+
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import BookingForm from "@/components/BookingForm";
 import { ArrowRight, Wifi, Tv, Coffee, Utensils, Plane, Car, Flame, ShoppingBag } from "lucide-react";

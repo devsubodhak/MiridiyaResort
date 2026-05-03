@@ -1,3 +1,5 @@
+"use client";
+
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import { Clock, Mountain, Bike, Waves, Map, Bird, ArrowRight } from "lucide-react";
 import { buildWhatsAppURL } from "@/lib/whatsapp";
