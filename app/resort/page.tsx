@@ -1,6 +1,7 @@
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import BookingForm from "@/components/BookingForm";
 import { ArrowRight, Wifi, Tv, Coffee, Utensils, Plane, Car, Flame, ShoppingBag } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 import Link from "next/link";
 import { buildWhatsAppURL } from "@/lib/whatsapp";
 
@@ -44,10 +45,12 @@ export default function Resort() {
           <ImagePlaceholder label="[RESORT-HERO]" className="h-full w-full" aspectRatio="hero" />
         </div>
         <div className="relative z-10 container mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl text-white mb-6">Miridiya Holiday Resort</h1>
-          <p className="text-lg md:text-xl text-cream/80 max-w-2xl mx-auto font-playfair italic leading-relaxed">
-            A peaceful riverside retreat in Nawata, Yatiyantota — your home base for exploring Kithulgala's wonders or simply unwinding in nature.
-          </p>
+          <Reveal>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl text-white mb-6">Miridiya Holiday Resort</h1>
+            <p className="text-lg md:text-xl text-cream/80 max-w-2xl mx-auto font-playfair italic leading-relaxed">
+              A peaceful riverside retreat in Nawata, Yatiyantota — your home base for exploring Kithulgala's wonders or simply unwinding in nature.
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -60,31 +63,33 @@ export default function Resort() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
-            {rooms.map((room) => (
-              <div key={room.id} className="group bg-white rounded-lg shadow-xl overflow-hidden flex flex-col hover:-translate-y-2 transition-transform duration-500">
-                <div className="relative overflow-hidden">
-                  <ImagePlaceholder label={room.label} className="w-full h-[300px] md:h-[400px] group-hover:scale-105 transition-transform duration-700" aspectRatio="4/3" />
-                </div>
-                <div className="p-8 md:p-12 flex flex-col flex-grow">
-                  <h3 className="text-3xl font-playfair text-forest-dark mb-4">{room.title}</h3>
-                  <p className="text-charcoal leading-relaxed mb-8 opacity-80">{room.desc}</p>
-                  
-                  <div className="flex flex-wrap gap-4 mt-auto mb-10">
-                    {room.features.map(f => (
-                      <span key={f} className="text-xs uppercase tracking-widest font-bold bg-cream px-3 py-1 rounded-full text-gold-dark">{f}</span>
-                    ))}
+            {rooms.map((room, i) => (
+              <Reveal key={room.id} delay={i * 0.2}>
+                <div className="group bg-white rounded-lg shadow-xl overflow-hidden flex flex-col hover:-translate-y-2 transition-transform duration-500 h-full">
+                  <div className="relative overflow-hidden">
+                    <ImagePlaceholder label={room.label} className="w-full h-[300px] md:h-[400px] group-hover:scale-105 transition-transform duration-700" aspectRatio="4/3" />
                   </div>
+                  <div className="p-8 md:p-12 flex flex-col flex-grow">
+                    <h3 className="text-3xl font-playfair text-forest-dark mb-4">{room.title}</h3>
+                    <p className="text-charcoal leading-relaxed mb-8 opacity-80">{room.desc}</p>
+                    
+                    <div className="flex flex-wrap gap-4 mt-auto mb-10">
+                      {room.features.map(f => (
+                        <span key={f} className="text-xs uppercase tracking-widest font-bold bg-cream px-3 py-1 rounded-full text-gold-dark">{f}</span>
+                      ))}
+                    </div>
 
-                  <a 
-                    href={buildWhatsAppURL(`Hello! I would like to enquire about room rates and availability at Miridiya Holiday Resort for ${room.title}.`)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gold-primary hover:bg-gold-dark text-white px-8 py-4 rounded-sm transition-all nav-link text-center"
-                  >
-                    Enquire About Rates
-                  </a>
+                    <a 
+                      href={buildWhatsAppURL(`Hello! I would like to enquire about room rates and availability at Miridiya Holiday Resort for ${room.title}.`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-gold-primary hover:bg-gold-dark text-white px-8 py-4 rounded-sm transition-all nav-link text-center"
+                    >
+                      Enquire About Rates
+                    </a>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

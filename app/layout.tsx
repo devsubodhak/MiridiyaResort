@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import AnimationProvider from "@/components/AnimationProvider";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,9 +38,12 @@ export default function RootLayout({
         className={`${inter.variable} ${playfair.variable} antialiased selection:bg-gold-primary selection:text-white`}
         suppressHydrationWarning
       >
+        <LoadingScreen />
         <Navbar />
         <main className="min-h-screen">
-          {children}
+          <AnimationProvider>
+            {children}
+          </AnimationProvider>
         </main>
         <Footer />
         <WhatsAppFloat />

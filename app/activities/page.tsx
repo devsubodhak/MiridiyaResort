@@ -1,6 +1,8 @@
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import { Clock, Mountain, Bike, Waves, Map, Bird, ArrowRight } from "lucide-react";
 import { buildWhatsAppURL } from "@/lib/whatsapp";
+import { Reveal } from "@/components/Reveal";
+import { motion } from "framer-motion";
 
 const ActivityCard = ({ id, title, label, src, desc, duration, difficulty }: any) => {
   return (
@@ -112,10 +114,12 @@ export default function Activities() {
           <ImagePlaceholder label="[ACTIVITIES-HERO]" className="h-full w-full" aspectRatio="hero" />
         </div>
         <div className="relative z-10 container mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl text-white mb-6 uppercase tracking-widest">Experiences & Adventures</h1>
-          <p className="text-xl md:text-2xl text-cream/80 max-w-2xl mx-auto font-playfair italic leading-relaxed">
-            Kithulgala is Sri Lanka's adventure capital — and Miridiya is your gateway to it all.
-          </p>
+          <Reveal>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl text-white mb-6 uppercase tracking-widest">Experiences & Adventures</h1>
+            <p className="text-xl md:text-2xl text-cream/80 max-w-2xl mx-auto font-playfair italic leading-relaxed">
+              Kithulgala is Sri Lanka's adventure capital — and Miridiya is your gateway to it all.
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -133,8 +137,10 @@ export default function Activities() {
       <section className="py-20 md:py-32 bg-cream">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-            {activities.map((act) => (
-              <ActivityCard key={act.id} {...act} />
+            {activities.map((act, i) => (
+              <Reveal key={act.id} delay={i * 0.1}>
+                <ActivityCard {...act} />
+              </Reveal>
             ))}
           </div>
         </div>

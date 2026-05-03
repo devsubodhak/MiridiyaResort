@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,9 +29,14 @@ const Navbar = () => {
   const whatsappURL = "https://wa.me/94763009385?text=Hello%20Miridiya!%20I%20would%20like%20to%20make%20a%20booking%20enquiry.";
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-forest-dark ${
-        isScrolled ? "bg-opacity-90 backdrop-blur-md border-b border-gold-dark/20" : ""
+    <motion.nav 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled 
+          ? "bg-forest-dark/95 backdrop-blur-md border-b border-gold-dark/20 py-1" 
+          : "bg-forest-dark/0 py-4"
       }`}
     >
       <div className="container mx-auto px-4 md:px-8">
@@ -90,29 +96,45 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-20 bg-forest-dark z-40 flex flex-col items-center justify-center space-y-8 animate-fade-in">
-          {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-2xl text-cream font-playfair uppercase tracking-widest hover:text-gold-light transition-colors"
-            >
-              {link.name}
-            </Link>
-          ))}
-          <a 
-            href={whatsappURL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-gold-primary text-white px-8 py-4 tracking-widest text-sm uppercase font-semibold"
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "calc(100vh - 80px)" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden fixed inset-0 top-20 bg-forest-dark z-40 flex flex-col items-center justify-center space-y-8"
           >
-            Book via WhatsApp
-          </a>
-        </div>
-      )}
-    </nav>
+            {navLinks.map((link, i) => (
+              <motion.div
+                key={link.name}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <Link 
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-2xl text-cream font-playfair uppercase tracking-widest hover:text-gold-light transition-colors"
+                >
+                  {link.name}
+                </Link>
+              </motion.div>
+            ))}
+            <motion.a 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navLinks.length * 0.1 }}
+              href={whatsappURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gold-primary text-white px-8 py-4 tracking-widest text-sm uppercase font-semibold"
+            >
+              Book via WhatsApp
+            </motion.a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 };
 

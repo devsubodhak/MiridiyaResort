@@ -3,6 +3,8 @@ import Image from "next/image";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import { Leaf, ForkKnife, Compass, ArrowRight, MapPin, Phone } from "lucide-react";
 import { buildWhatsAppURL } from "@/lib/whatsapp";
+import { Reveal } from "@/components/Reveal";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
@@ -22,17 +24,37 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <p className="nav-link text-gold-light mb-4 md:mb-6 animate-fade-in-up uppercase tracking-widest text-sm font-semibold">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 2.2 }}
+            className="nav-link text-gold-light mb-4 md:mb-6 uppercase tracking-widest text-sm font-semibold"
+          >
             Nawata · Yatiyantota · Sri Lanka
-          </p>
-          <h1 className="text-4xl md:text-6xl lg:text-8xl leading-none mb-6 animate-fade-in-up delay-100 max-w-5xl mx-auto">
+          </motion.p>
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 2.4 }}
+            className="text-4xl md:text-6xl lg:text-8xl leading-none mb-6 max-w-5xl mx-auto"
+          >
             Where the River Whispers and the Forest Breathes
-          </h1>
-          <p className="text-lg md:text-xl md:max-w-2xl mx-auto mb-10 opacity-90 font-inter animate-fade-in-up delay-200">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 2.6 }}
+            className="text-lg md:text-xl md:max-w-2xl mx-auto mb-10 opacity-90 font-inter"
+          >
             A riverside retreat in the heart of Kithulgala's rainforest, offering warm Sri Lankan hospitality, adventure, and authentic cuisine.
-          </p>
+          </motion.p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in-up delay-300">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 2.8 }}
+            className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4"
+          >
             <a 
               href={buildWhatsAppURL("Hello! I am interested in staying at Miridiya Holiday Resort. Could you share availability and rates?")}
               target="_blank"
@@ -48,7 +70,7 @@ export default function Home() {
             >
               Explore the Restaurant
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -56,29 +78,35 @@ export default function Home() {
       <section className="bg-cream py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-            <div className="flex flex-col items-center space-y-4">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-gold-primary shadow-sm">
-                <Leaf size={32} />
+            <Reveal delay={0.1}>
+              <div className="flex flex-col items-center space-y-4">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-gold-primary shadow-sm">
+                  <Leaf size={32} />
+                </div>
+                <h3 className="text-2xl font-playfair text-forest-dark">Nature & Wilderness</h3>
+                <p className="text-charcoal opacity-80 max-w-[280px]">Kelani River valley, rainforest, and local migratory birds.</p>
               </div>
-              <h3 className="text-2xl font-playfair text-forest-dark">Nature & Wilderness</h3>
-              <p className="text-charcoal opacity-80 max-w-[280px]">Kelani River valley, rainforest, and local migratory birds.</p>
-            </div>
+            </Reveal>
             
-            <div className="flex flex-col items-center space-y-4 border-y md:border-y-0 md:border-x border-gold-dark/10 py-12 md:py-0">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-gold-primary shadow-sm">
-                <ForkKnife size={32} />
+            <Reveal delay={0.3}>
+              <div className="flex flex-col items-center space-y-4 border-y md:border-y-0 md:border-x border-gold-dark/10 py-12 md:py-0">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-gold-primary shadow-sm">
+                  <ForkKnife size={32} />
+                </div>
+                <h3 className="text-2xl font-playfair text-forest-dark">Authentic Cuisine</h3>
+                <p className="text-charcoal opacity-80 max-w-[280px]">Traditional Sri Lankan flavours and freshest local ingredients.</p>
               </div>
-              <h3 className="text-2xl font-playfair text-forest-dark">Authentic Cuisine</h3>
-              <p className="text-charcoal opacity-80 max-w-[280px]">Traditional Sri Lankan flavours and freshest local ingredients.</p>
-            </div>
+            </Reveal>
             
-            <div className="flex flex-col items-center space-y-4">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-gold-primary shadow-sm">
-                <Compass size={32} />
+            <Reveal delay={0.5}>
+              <div className="flex flex-col items-center space-y-4">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-gold-primary shadow-sm">
+                  <Compass size={32} />
+                </div>
+                <h3 className="text-2xl font-playfair text-forest-dark">Adventure</h3>
+                <p className="text-charcoal opacity-80 max-w-[280px]">Rafting, trekking, canyoning, and bird watching.</p>
               </div>
-              <h3 className="text-2xl font-playfair text-forest-dark">Adventure</h3>
-              <p className="text-charcoal opacity-80 max-w-[280px]">Rafting, trekking, canyoning, and bird watching.</p>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -87,28 +115,34 @@ export default function Home() {
       <section className="bg-off-white py-20 md:py-32 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
-            <div className="w-full lg:w-1/2 rounded-lg overflow-hidden shadow-2xl">
-              <ImagePlaceholder 
-                label="[RESORT-PREVIEW]" 
-                src="/resort-preview.jpg"
-                alt="Miridiya Holiday Resort Exterior"
-                className="w-full h-[400px] md:h-[600px]" 
-                aspectRatio="4/3" 
-              />
+            <div className="w-full lg:w-1/2">
+              <Reveal>
+                <div className="rounded-lg overflow-hidden shadow-2xl">
+                  <ImagePlaceholder 
+                    label="[RESORT-PREVIEW]" 
+                    src="/resort-preview.jpg"
+                    alt="Miridiya Holiday Resort Exterior"
+                    className="w-full h-[400px] md:h-[600px]" 
+                    aspectRatio="4/3" 
+                  />
+                </div>
+              </Reveal>
             </div>
             <div className="w-full lg:w-1/2 flex flex-col items-start text-left">
-              <p className="nav-link text-gold-primary mb-4">The Resort</p>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl text-forest-dark mb-8">Miridiya Holiday Resort</h2>
-              <p className="text-lg text-charcoal leading-relaxed mb-10 max-w-xl">
-                Set along the Kelani River in Nawata, our resort offers comfortable air-conditioned and non-air-conditioned rooms with satellite TV, complimentary Wi-Fi, and 24-hour room service — all surrounded by the sounds of nature.
-              </p>
-              <Link 
-                href="/resort" 
-                className="group inline-flex items-center text-gold-primary font-semibold hover:text-gold-dark transition-colors border-b-2 border-gold-primary pb-2"
-              >
-                View Rooms & Facilities 
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              <Reveal>
+                <p className="nav-link text-gold-primary mb-4">The Resort</p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl text-forest-dark mb-8">Miridiya Holiday Resort</h2>
+                <p className="text-lg text-charcoal leading-relaxed mb-10 max-w-xl">
+                  Set along the Kelani River in Nawata, our resort offers comfortable air-conditioned and non-air-conditioned rooms with satellite TV, complimentary Wi-Fi, and 24-hour room service — all surrounded by the sounds of nature.
+                </p>
+                <Link 
+                  href="/resort" 
+                  className="group inline-flex items-center text-gold-primary font-semibold hover:text-gold-dark transition-colors border-b-2 border-gold-primary pb-2"
+                >
+                  View Rooms & Facilities 
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Reveal>
             </div>
           </div>
         </div>
@@ -119,27 +153,33 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-24">
             <div className="w-full lg:w-1/2 flex flex-col items-start text-left">
-              <p className="nav-link text-gold-primary mb-4">The Culinary Experience</p>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl text-forest-dark mb-8">Miridiya Restaurant</h2>
-              <p className="text-lg text-charcoal leading-relaxed mb-10 max-w-xl">
-                Our restaurant is the heart of Miridiya. From traditional Sri Lankan rice and curry to international breakfast options — we cook with the finest local spices, fresh ingredients, and genuine care. Vegan, vegetarian, gluten-free options available.
-              </p>
-              <Link 
-                href="/restaurant" 
-                className="group inline-flex items-center text-gold-primary font-semibold hover:text-gold-dark transition-colors border-b-2 border-gold-primary pb-2"
-              >
-                See Our Menu 
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              <Reveal>
+                <p className="nav-link text-gold-primary mb-4">The Culinary Experience</p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl text-forest-dark mb-8">Miridiya Restaurant</h2>
+                <p className="text-lg text-charcoal leading-relaxed mb-10 max-w-xl">
+                  Our restaurant is the heart of Miridiya. From traditional Sri Lankan rice and curry to international breakfast options — we cook with the finest local spices, fresh ingredients, and genuine care. Vegan, vegetarian, gluten-free options available.
+                </p>
+                <Link 
+                  href="/restaurant" 
+                  className="group inline-flex items-center text-gold-primary font-semibold hover:text-gold-dark transition-colors border-b-2 border-gold-primary pb-2"
+                >
+                  See Our Menu 
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Reveal>
             </div>
-            <div className="w-full lg:w-1/2 rounded-lg overflow-hidden shadow-2xl">
-              <ImagePlaceholder 
-                label="[RESTAURANT-PREVIEW]" 
-                src="/restaurant-preview.png"
-                alt="Miridiya Restaurant Dining Experience"
-                className="w-full h-[400px] md:h-[600px]" 
-                aspectRatio="4/3" 
-              />
+            <div className="w-full lg:w-1/2">
+              <Reveal>
+                <div className="rounded-lg overflow-hidden shadow-2xl">
+                  <ImagePlaceholder 
+                    label="[RESTAURANT-PREVIEW]" 
+                    src="/restaurant-preview.png"
+                    alt="Miridiya Restaurant Dining Experience"
+                    className="w-full h-[400px] md:h-[600px]" 
+                    aspectRatio="4/3" 
+                  />
+                </div>
+              </Reveal>
             </div>
           </div>
         </div>
@@ -148,19 +188,21 @@ export default function Home() {
       {/* ACTIVITIES STRIP */}
       <section className="bg-forest-dark py-20 md:py-32 text-white">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div>
-              <p className="nav-link text-gold-light mb-4">Get Outside</p>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl">Adventures Await</h2>
+          <Reveal width="100%">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+              <div>
+                <p className="nav-link text-gold-light mb-4">Get Outside</p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl">Adventures Await</h2>
+              </div>
+              <Link 
+                href="/activities" 
+                className="flex items-center text-gold-light hover:text-white transition-colors nav-link group border-b border-gold-light hover:border-white pb-1"
+              >
+                See All Activities 
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
-            <Link 
-              href="/activities" 
-              className="flex items-center text-gold-light hover:text-white transition-colors nav-link group border-b border-gold-light hover:border-white pb-1"
-            >
-              See All Activities 
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -169,19 +211,21 @@ export default function Home() {
               { id: "BIRDS", title: "Bird Watching", text: "A wild sanctuary for migrating species", src: "/act-bird.jpg" },
               { id: "CAVE", title: "Beli Lena Cave", text: "Discover ancient rock shelters nearby", src: "/act-cave.jpg" }
             ].map((act, i) => (
-              <div key={i} className="group cursor-pointer">
-                <div className="overflow-hidden mb-6 relative rounded-sm">
-                  <ImagePlaceholder 
-                    label={`[ACT-${act.id}]`} 
-                    src={act.src}
-                    alt={act.title}
-                    className="w-full group-hover:scale-105 transition-transform duration-700" 
-                    aspectRatio="4/3" 
-                  />
+              <Reveal key={i} delay={i * 0.1}>
+                <div className="group cursor-pointer">
+                  <div className="overflow-hidden mb-6 relative rounded-sm">
+                    <ImagePlaceholder 
+                      label={`[ACT-${act.id}]`} 
+                      src={act.src}
+                      alt={act.title}
+                      className="w-full group-hover:scale-105 transition-transform duration-700" 
+                      aspectRatio="4/3" 
+                    />
+                  </div>
+                  <h4 className="text-xl font-playfair mb-2 group-hover:text-gold-primary transition-colors">{act.title}</h4>
+                  <p className="text-white/60 text-sm italic">{act.text}</p>
                 </div>
-                <h4 className="text-xl font-playfair mb-2 group-hover:text-gold-primary transition-colors">{act.title}</h4>
-                <p className="text-white/60 text-sm italic">{act.text}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
