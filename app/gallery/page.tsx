@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
+import { Reveal } from "@/components/Reveal";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Gallery = () => {
     const filters = ["All", "Resort & Rooms", "Kitchen & Food", "Nature & Wildlife", "Activities", "Surroundings"];
@@ -39,10 +41,12 @@ const Gallery = () => {
             {/* PAGE HERO */}
             <section className="pt-32 pb-20 md:pt-44 md:pb-32 bg-forest-dark flex items-center justify-center text-center">
                 <div className="container mx-auto px-4">
-                    <h1 className="text-4xl md:text-7xl text-white mb-6 uppercase tracking-widest">Gallery</h1>
-                    <p className="text-xl text-gold-light font-playfair italic leading-relaxed">
-                        A glimpse into the life and landscape of Miridiya.
-                    </p>
+                    <Reveal>
+                        <h1 className="text-4xl md:text-7xl text-white mb-6 uppercase tracking-widest">Gallery</h1>
+                        <p className="text-xl text-gold-light font-playfair italic leading-relaxed">
+                            A glimpse into the life and landscape of Miridiya.
+                        </p>
+                    </Reveal>
                 </div>
             </section>
 
@@ -68,26 +72,36 @@ const Gallery = () => {
             {/* MASONRY/GRID */}
             <section className="py-20 bg-cream">
                 <div className="container mx-auto px-4">
-                    <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-                        {filteredItems.map((item) => (
-                            <div 
-                                key={item.id} 
-                                className="break-inside-avoid relative group cursor-zoom-in rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
-                            >
-                                <ImagePlaceholder 
-                                    label={item.label} 
-                                    className="w-full opacity-90 group-hover:opacity-100 transition-opacity" 
-                                    aspectRatio={item.id % 3 === 0 ? "16/9" : "4/3"} 
-                                />
-                                <div className="absolute inset-0 bg-forest-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                     <span className="text-white nav-link text-[10px] tracking-widest font-bold bg-gold-primary px-4 py-2 border border-white/20">Expand View</span>
-                                </div>
-                                <div className="absolute bottom-4 left-4 z-10 opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
-                                     <span className="bg-white/90 backdrop-blur-sm text-forest-dark px-3 py-1 rounded-sm text-[10px] uppercase tracking-widest font-bold">{item.group}</span>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    <motion.div 
+                        layout
+                        className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6"
+                    >
+                        <AnimatePresence mode='popLayout'>
+                            {filteredItems.map((item) => (
+                                <motion.div 
+                                    layout
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.9 }}
+                                    transition={{ duration: 0.4 }}
+                                    key={item.id} 
+                                    className="break-inside-avoid relative group cursor-zoom-in rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                                >
+                                    <ImagePlaceholder 
+                                        label={item.label} 
+                                        className="w-full opacity-90 group-hover:opacity-100 transition-opacity" 
+                                        aspectRatio={item.id % 3 === 0 ? "16/9" : "4/3"} 
+                                    />
+                                    <div className="absolute inset-0 bg-forest-dark/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                         <span className="text-white nav-link text-[10px] tracking-widest font-bold bg-gold-primary px-4 py-2 border border-white/20">Expand View</span>
+                                    </div>
+                                    <div className="absolute bottom-4 left-4 z-10 opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+                                         <span className="bg-white/90 backdrop-blur-sm text-forest-dark px-3 py-1 rounded-sm text-[10px] uppercase tracking-widest font-bold">{item.group}</span>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </AnimatePresence>
+                    </motion.div>
                 </div>
             </section>
         </div>

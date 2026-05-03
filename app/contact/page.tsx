@@ -4,6 +4,8 @@ import { useState } from "react";
 import ContactForm from "@/components/ContactForm";
 import { Phone, Mail, MapPin, Facebook, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 import { buildWhatsAppURL } from "@/lib/whatsapp";
+import { Reveal } from "@/components/Reveal";
+import { motion, AnimatePresence } from "framer-motion";
 
 const FAQItem = ({ question, answer }: { question: string, answer: string }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -14,13 +16,28 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
                 className="w-full flex justify-between items-center text-left focus:outline-none group"
             >
                 <h4 className="text-xl font-playfair text-forest-dark group-hover:text-gold-primary transition-colors">{question}</h4>
-                {isOpen ? <ChevronUp size={20} className="text-gold-primary" /> : <ChevronDown size={20} className="text-gold-primary" />}
+                <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                >
+                    <ChevronDown size={20} className="text-gold-primary" />
+                </motion.div>
             </button>
-            {isOpen && (
-                <div className="mt-4 text-charcoal opacity-80 leading-relaxed font-inter animate-fade-in">
-                    {answer}
-                </div>
-            )}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div 
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                    >
+                        <div className="mt-4 text-charcoal opacity-80 leading-relaxed font-inter">
+                            {answer}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
@@ -40,10 +57,12 @@ export default function Contact() {
             {/* PAGE HERO */}
             <section className="pt-32 pb-20 md:pt-44 md:pb-32 bg-forest-dark flex items-center justify-center text-center">
                 <div className="container mx-auto px-4">
-                    <h1 className="text-4xl md:text-7xl text-white mb-6 uppercase tracking-widest">Get in Touch</h1>
-                    <p className="text-xl text-gold-light font-playfair italic leading-relaxed">
-                        We are here to help you plan your perfect riverside escape.
-                    </p>
+                    <Reveal>
+                        <h1 className="text-4xl md:text-7xl text-white mb-6 uppercase tracking-widest">Get in Touch</h1>
+                        <p className="text-xl text-gold-light font-playfair italic leading-relaxed">
+                            We are here to help you plan your perfect riverside escape.
+                        </p>
+                    </Reveal>
                 </div>
             </section>
 
@@ -53,65 +72,69 @@ export default function Contact() {
                     <div className="flex flex-col lg:flex-row gap-16 md:gap-24">
                         {/* LEFT: INFO */}
                         <div className="w-full lg:w-1/2 flex flex-col space-y-12">
-                            <div>
-                                <h2 className="text-4xl font-playfair text-forest-dark mb-10">Contact Details</h2>
-                                <div className="space-y-8">
-                                    <div className="flex items-start space-x-6">
-                                        <div className="p-4 bg-cream rounded-full text-gold-primary shadow-sm">
-                                            <Phone size={24} />
+                            <Reveal>
+                                <div>
+                                    <h2 className="text-4xl font-playfair text-forest-dark mb-10">Contact Details</h2>
+                                    <div className="space-y-8">
+                                        <div className="flex items-start space-x-6">
+                                            <div className="p-4 bg-cream rounded-full text-gold-primary shadow-sm">
+                                                <Phone size={24} />
+                                            </div>
+                                            <div>
+                                                <p className="nav-link text-xs pb-1 opacity-50">Phone & WhatsApp</p>
+                                                <p className="text-lg font-semibold text-forest-dark">+94 36 7855 700</p>
+                                                <p className="text-lg font-semibold text-forest-dark">+94 76 3009 385</p>
+                                                <p className="text-lg font-semibold text-forest-dark">+94 76 3857 733</p>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <p className="nav-link text-xs pb-1 opacity-50">Phone & WhatsApp</p>
-                                            <p className="text-lg font-semibold text-forest-dark">+94 36 7855 700</p>
-                                            <p className="text-lg font-semibold text-forest-dark">+94 76 3009 385</p>
-                                            <p className="text-lg font-semibold text-forest-dark">+94 76 3857 733</p>
+                                        <div className="flex items-start space-x-6">
+                                            <div className="p-4 bg-cream rounded-full text-gold-primary shadow-sm">
+                                                <Mail size={24} />
+                                            </div>
+                                            <div>
+                                                <p className="nav-link text-xs pb-1 opacity-50">Email Address</p>
+                                                <p className="text-lg font-semibold text-forest-dark">miridiyaresort@gmail.com</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="flex items-start space-x-6">
-                                        <div className="p-4 bg-cream rounded-full text-gold-primary shadow-sm">
-                                            <Mail size={24} />
+                                        <div className="flex items-start space-x-6">
+                                            <div className="p-4 bg-cream rounded-full text-gold-primary shadow-sm">
+                                                <MapPin size={24} />
+                                            </div>
+                                            <div>
+                                                <p className="nav-link text-xs pb-1 opacity-50">Our Address</p>
+                                                <p className="text-lg font-semibold text-forest-dark leading-relaxed">
+                                                    Hatton Road, Nawata, Yatiyantota, <br />
+                                                    Sabaragamuwa Province, Sri Lanka 71700
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <p className="nav-link text-xs pb-1 opacity-50">Email Address</p>
-                                            <p className="text-lg font-semibold text-forest-dark">miridiyaresort@gmail.com</p>
+                                        <div className="pt-6">
+                                            <a 
+                                                href={buildWhatsAppURL("Hello Miridiya! I would like to make an enquiry.")}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center bg-gold-primary hover:bg-gold-dark text-white px-10 py-5 rounded-sm nav-link font-bold shadow-xl transition-all w-full md:w-auto"
+                                            >
+                                                Message on WhatsApp
+                                            </a>
                                         </div>
-                                    </div>
-                                    <div className="flex items-start space-x-6">
-                                        <div className="p-4 bg-cream rounded-full text-gold-primary shadow-sm">
-                                            <MapPin size={24} />
-                                        </div>
-                                        <div>
-                                            <p className="nav-link text-xs pb-1 opacity-50">Our Address</p>
-                                            <p className="text-lg font-semibold text-forest-dark leading-relaxed">
-                                                Hatton Road, Nawata, Yatiyantota, <br />
-                                                Sabaragamuwa Province, Sri Lanka 71700
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="pt-6">
-                                        <a 
-                                            href={buildWhatsAppURL("Hello Miridiya! I would like to make an enquiry.")}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center bg-gold-primary hover:bg-gold-dark text-white px-10 py-5 rounded-sm nav-link font-bold shadow-xl transition-all w-full md:w-auto"
-                                        >
-                                            Message on WhatsApp
-                                        </a>
                                     </div>
                                 </div>
-                            </div>
+                            </Reveal>
 
-                            <div className="p-10 bg-forest-mid text-white rounded-lg shadow-xl relative overflow-hidden group">
-                                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
-                                    <ExternalLink size={100} />
+                            <Reveal delay={0.4}>
+                                <div className="p-10 bg-forest-mid text-white rounded-lg shadow-xl relative overflow-hidden group">
+                                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
+                                        <ExternalLink size={100} />
+                                    </div>
+                                    <h3 className="text-2xl font-playfair mb-6">Getting There</h3>
+                                    <div className="space-y-6 opacity-90 text-[15px] leading-relaxed">
+                                        <p><strong>From Colombo:</strong> Take the A1 towards Kegalle, then follow signs to Kithulgala (approx. 2 hours).</p>
+                                        <p><strong>From Kandy:</strong> Head south via Gampola towards Kithulgala (approx. 1.5 hours).</p>
+                                        <p className="italic font-playfair mt-6">We can arrange pick-up from nearby towns or major airports — just enquire via WhatsApp.</p>
+                                    </div>
                                 </div>
-                                <h3 className="text-2xl font-playfair mb-6">Getting There</h3>
-                                <div className="space-y-6 opacity-90 text-[15px] leading-relaxed">
-                                    <p><strong>From Colombo:</strong> Take the A1 towards Kegalle, then follow signs to Kithulgala (approx. 2 hours).</p>
-                                    <p><strong>From Kandy:</strong> Head south via Gampola towards Kithulgala (approx. 1.5 hours).</p>
-                                    <p className="italic font-playfair mt-6">We can arrange pick-up from nearby towns or major airports — just enquire via WhatsApp.</p>
-                                </div>
-                            </div>
+                            </Reveal>
                         </div>
 
                         {/* RIGHT: FORM */}
