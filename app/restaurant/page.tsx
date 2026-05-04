@@ -31,7 +31,7 @@ export default function Restaurant() {
   return (
     <div className="flex flex-col w-full">
       {/* PAGE HERO */}
-      <section className="relative h-[50vh] min-h-[450px] md:min-h-[550px] bg-forest-dark flex items-center justify-center overflow-hidden">
+      <section className="relative h-[40vh] min-h-[350px] md:min-h-[450px] bg-forest-dark flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <ImagePlaceholder label="[RESTAURANT-HERO]" className="h-full w-full" aspectRatio="hero" />
         </div>

@@ -39,7 +39,7 @@ const Gallery = () => {
     return (
         <div className="flex flex-col w-full">
             {/* PAGE HERO */}
-            <section className="relative h-[50vh] min-h-[450px] md:min-h-[550px] bg-forest-dark flex items-center justify-center overflow-hidden">
+            <section className="relative h-[40vh] min-h-[350px] md:min-h-[450px] bg-forest-dark flex items-center justify-center overflow-hidden">
                 <div className="container mx-auto px-4">
                     <Reveal width="100%">
                         <div className="flex flex-col items-center justify-center text-center">
