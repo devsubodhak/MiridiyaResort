@@ -10,26 +10,26 @@ const Gallery = () => {
     const [activeFilter, setActiveFilter] = useState("All");
 
     const galleryItems = [
-        { id: 1, label: "[GAL-ROOM-1]", group: "Resort & Rooms" },
-        { id: 2, label: "[GAL-ROOM-2]", group: "Resort & Rooms" },
-        { id: 3, label: "[GAL-ROOM-3]", group: "Resort & Rooms" },
-        { id: 4, label: "[GAL-ROOM-4]", group: "Resort & Rooms" },
-        { id: 5, label: "[GAL-POOL]", group: "Resort & Rooms" },
-        { id: 6, label: "[GAL-EXTERIOR]", group: "Resort & Rooms" },
-        { id: 7, label: "[GAL-FOOD-1]", group: "Kitchen & Food" },
-        { id: 8, label: "[GAL-FOOD-2]", group: "Kitchen & Food" },
-        { id: 9, label: "[GAL-FOOD-3]", group: "Kitchen & Food" },
-        { id: 10, label: "[GAL-KITCHEN]", group: "Kitchen & Food" },
-        { id: 11, label: "[GAL-RIVER-1]", group: "Nature & Wildlife" },
-        { id: 12, label: "[GAL-RIVER-2]", group: "Nature & Wildlife" },
-        { id: 13, label: "[GAL-BIRDS]", group: "Nature & Wildlife" },
-        { id: 14, label: "[GAL-FOREST]", group: "Nature & Wildlife" },
-        { id: 15, label: "[GAL-RAFTING]", group: "Activities" },
-        { id: 16, label: "[GAL-TREKKING]", group: "Activities" },
-        { id: 17, label: "[GAL-CANYONING]", group: "Activities" },
-        { id: 18, label: "[GAL-CAVE]", group: "Activities" },
-        { id: 19, label: "[GAL-SURR-1]", group: "Surroundings" },
-        { id: 20, label: "[GAL-SURR-2]", group: "Surroundings" },
+        { id: 1, label: "Comfortable Room", group: "Resort & Rooms", src: "/images/room5.jpeg" },
+        { id: 2, label: "Resort Interior", group: "Resort & Rooms", src: "/images/room6.jpeg" },
+        { id: 3, label: "Riverside Room", group: "Resort & Rooms", src: "/images/room7.jpeg" },
+        { id: 4, label: "Luxury Suite", group: "Resort & Rooms", src: "/images/room8.jpeg" },
+        { id: 5, label: "Resort View", group: "Resort & Rooms", src: "/resort-preview.jpg" },
+        { id: 6, label: "Exterior View", group: "Resort & Rooms", src: "/images/rooms.jpg" },
+        { id: 7, label: "Sri Lankan Breakfast", group: "Kitchen & Food", src: "/images/breakfast.jpg" },
+        { id: 8, label: "Traditional Dinner", group: "Kitchen & Food", src: "/images/restaurant.jpg" },
+        { id: 9, label: "Dining Area", group: "Kitchen & Food", src: "/restaurant-preview.png" },
+        { id: 10, label: "Chef's Special", group: "Kitchen & Food", src: "/images/breakfast.jpg" },
+        { id: 11, label: "Kelani River", group: "Nature & Wildlife", src: "/hero.jpg" },
+        { id: 12, label: "Local Flora", group: "Nature & Wildlife", src: "/hero.jpg" },
+        { id: 13, label: "Exotic Birds", group: "Nature & Wildlife", src: "/act-bird.jpg" },
+        { id: 14, label: "Rainforest", group: "Nature & Wildlife", src: "/act-trekking.jpg" },
+        { id: 15, label: "White Water Rafting", group: "Activities", src: "/act-rafting.jpg" },
+        { id: 16, label: "Jungle Trekking", group: "Activities", src: "/act-trekking.jpg" },
+        { id: 17, label: "Canyoning", group: "Activities", src: "/canyoning.jpg" },
+        { id: 18, label: "Beli Lena Cave", group: "Activities", src: "/act-cave.jpg" },
+        { id: 19, label: "Miridiya Entrance", group: "Surroundings", src: "/images/name-board.jpg" },
+        { id: 20, label: "Scenic View", group: "Surroundings", src: "/hero.jpg" },
     ];
 
     const filteredItems = activeFilter === "All" 
@@ -40,7 +40,16 @@ const Gallery = () => {
         <div className="flex flex-col w-full">
             {/* PAGE HERO */}
             <section className="relative h-[40vh] min-h-[350px] md:min-h-[450px] bg-forest-dark flex items-center justify-center overflow-hidden">
-                <div className="container mx-auto px-4">
+                <div className="absolute inset-0 opacity-40">
+                    <ImagePlaceholder 
+                        label="[GAL-HERO]" 
+                        src="/hero.jpg"
+                        alt="Miridiya Gallery Hero"
+                        className="h-full w-full" 
+                        aspectRatio="hero" 
+                    />
+                </div>
+                <div className="relative z-10 container mx-auto px-4">
                     <Reveal width="100%">
                         <div className="flex flex-col items-center justify-center text-center">
                             <h1 className="text-4xl md:text-7xl text-white mb-6 uppercase tracking-widest">Gallery</h1>
@@ -53,7 +62,7 @@ const Gallery = () => {
             </section>
 
             {/* FILTERS */}
-            <section className="py-12 bg-off-white sticky top-20 z-30 shadow-sm overflow-x-auto">
+            <section className="py-12 bg-off-white sticky top-[80px] md:top-[96px] z-30 shadow-sm overflow-x-auto">
                 <div className="container mx-auto px-4 flex justify-center space-x-6 whitespace-nowrap scrollbar-hide">
                     {filters.map((filter) => (
                         <button
@@ -91,6 +100,8 @@ const Gallery = () => {
                                 >
                                     <ImagePlaceholder 
                                         label={item.label} 
+                                        src={item.src}
+                                        alt={item.label}
                                         className="w-full opacity-90 group-hover:opacity-100 transition-opacity" 
                                         aspectRatio={item.id % 3 === 0 ? "16/9" : "4/3"} 
                                     />

@@ -12,28 +12,37 @@ export default function Restaurant() {
       id: "breakfast",
       title: "Breakfast",
       items: ["American Breakfast", "Full English/Irish Breakfast", "Sri Lankan (Hoppers, Kiribath)", "A La Carte", "Buffet Options"],
-      label: "[MENU-BREAKFAST]"
+      label: "Miridiya Breakfast",
+      src: "/images/breakfast.jpg"
     },
     {
       id: "mains",
       title: "Mains & Rice & Curry",
       items: ["Traditional Sri Lankan Rice & Curry", "Asian Dishes", "BBQ (on request)", "Packed Lunch (for excursions)"],
-      label: "[MENU-MAINS]"
+      label: "Sri Lankan Rice & Curry",
+      src: "/restaurant-preview.png"
     },
     {
       id: "dietary",
       title: "Dietary Options",
       items: ["Vegan", "Vegetarian", "Gluten-Free", "Allergy-Free"],
-      label: "[MENU-DIETARY]"
-    }
+      label: "Healthy Choices",
+      src: "/images/restaurant.jpg"
+    },
   ];
 
   return (
     <div className="flex flex-col w-full">
       {/* PAGE HERO */}
       <section className="relative h-[40vh] min-h-[350px] md:min-h-[450px] bg-forest-dark flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <ImagePlaceholder label="[RESTAURANT-HERO]" className="h-full w-full" aspectRatio="hero" />
+        <div className="absolute inset-0 opacity-40">
+          <ImagePlaceholder 
+            label="[RESTAURANT-HERO]" 
+            src="/restaurant-preview.png"
+            alt="Miridiya Restaurant Hero"
+            className="h-full w-full" 
+            aspectRatio="hero" 
+          />
         </div>
         <div className="relative z-10 container mx-auto px-4">
           <Reveal width="100%">
@@ -103,7 +112,13 @@ export default function Restaurant() {
               <Reveal key={section.id} delay={i * 0.2}>
                 <div className="group">
                   <div className="rounded-lg overflow-hidden shadow-lg mb-8 h-64">
-                     <ImagePlaceholder label={section.label} className="w-full h-full group-hover:scale-110 transition-transform duration-700" aspectRatio="4/3" />
+                     <ImagePlaceholder 
+                       label={section.label} 
+                       src={(section as any).src}
+                       alt={section.title}
+                       className="w-full h-full group-hover:scale-110 transition-transform duration-700" 
+                       aspectRatio="4/3" 
+                     />
                   </div>
                   <h3 className="text-2xl font-playfair text-forest-dark mb-6 border-b border-gold-primary/30 pb-4 uppercase tracking-wider">{section.title}</h3>
                   <ul className="space-y-4">

@@ -15,8 +15,14 @@ export default function About() {
     <div className="flex flex-col w-full">
       {/* PAGE HERO */}
       <section className="relative h-[40vh] min-h-[350px] md:min-h-[450px] bg-forest-dark flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <ImagePlaceholder label="[ABOUT-HERO]" className="h-full w-full" aspectRatio="hero" />
+        <div className="absolute inset-0 opacity-40">
+          <ImagePlaceholder 
+            label="[ABOUT-HERO]" 
+            src="/hero.jpg"
+            alt="Miridiya Holiday Resort - About Us Hero"
+            className="h-full w-full" 
+            aspectRatio="hero" 
+          />
         </div>
         <div className="relative z-10 container mx-auto px-4">
           <Reveal width="100%">
@@ -75,7 +81,13 @@ export default function About() {
 
       {/* PROPERTY IMAGE SECTION */}
       <section className="py-0">
-        <ImagePlaceholder label="[ABOUT-PROPERTY]" className="w-full min-h-[500px]" aspectRatio="hero" />
+        <ImagePlaceholder 
+          label="[ABOUT-PROPERTY]" 
+          src="/resort-preview.jpg"
+          alt="Miridiya Holiday Resort - Property View"
+          className="w-full min-h-[500px]" 
+          aspectRatio="hero" 
+        />
       </section>
 
       {/* VALUES SECTION (Commitment) */}

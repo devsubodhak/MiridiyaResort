@@ -104,8 +104,14 @@ export default function Activities() {
     <div className="flex flex-col w-full">
       {/* PAGE HERO */}
       <section className="relative h-[40vh] min-h-[350px] md:min-h-[450px] bg-forest-dark flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <ImagePlaceholder label="[ACTIVITIES-HERO]" className="h-full w-full" aspectRatio="hero" />
+        <div className="absolute inset-0 opacity-40">
+          <ImagePlaceholder 
+            label="[ACTIVITIES-HERO]" 
+            src="/hero.jpg"
+            alt="Miridiya Activities Hero"
+            className="h-full w-full" 
+            aspectRatio="hero" 
+          />
         </div>
         <div className="relative z-10 container mx-auto px-4">
           <Reveal width="100%">

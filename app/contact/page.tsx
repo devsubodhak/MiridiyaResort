@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
 import ContactForm from "@/components/ContactForm";
 import { Phone, Mail, MapPin, Facebook, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 import { buildWhatsAppURL } from "@/lib/whatsapp";
@@ -56,7 +57,16 @@ export default function Contact() {
         <div className="flex flex-col w-full">
             {/* PAGE HERO */}
             <section className="relative h-[40vh] min-h-[350px] md:min-h-[450px] bg-forest-dark flex items-center justify-center overflow-hidden">
-                <div className="container mx-auto px-4">
+                <div className="absolute inset-0 opacity-40">
+                    <ImagePlaceholder 
+                        label="[CONTACT-HERO]" 
+                        src="/hero.jpg"
+                        alt="Miridiya Contact Hero"
+                        className="h-full w-full" 
+                        aspectRatio="hero" 
+                    />
+                </div>
+                <div className="relative z-10 container mx-auto px-4">
                     <Reveal width="100%">
                         <div className="flex flex-col items-center justify-center text-center">
                             <h1 className="text-4xl md:text-7xl text-white mb-6 uppercase tracking-widest">Get in Touch</h1>

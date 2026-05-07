@@ -11,7 +11,8 @@ export default function Resort() {
   const rooms = [
     {
       id: "AC",
-      label: "[ROOM-AC]",
+      label: "AC Room",
+      src: "/images/rooms.jpg",
       title: "Air-Conditioned Rooms",
       price: "Enquire for rates",
       desc: "Comfortable AC rooms with satellite TV, complimentary Wi-Fi, private bathroom, and room service.",
@@ -19,7 +20,8 @@ export default function Resort() {
     },
     {
       id: "NAC",
-      label: "[ROOM-NAC]",
+      label: "Non-AC Room",
+      src: "/images/rooms2.jpg",
       title: "Non-Air-Conditioned Rooms",
       price: "Enquire for rates",
       desc: "Naturally cool rooms designed to immerse you in the forest ambiance, with all essential amenities.",
@@ -43,8 +45,14 @@ export default function Resort() {
     <div className="flex flex-col w-full">
       {/* PAGE HERO */}
       <section className="relative h-[40vh] min-h-[350px] md:min-h-[450px] bg-forest-dark flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <ImagePlaceholder label="[RESORT-HERO]" className="h-full w-full" aspectRatio="hero" />
+        <div className="absolute inset-0 opacity-40">
+          <ImagePlaceholder 
+            label="[RESORT-HERO]" 
+            src="/hero.jpg"
+            alt="Miridiya Holiday Resort Hero"
+            className="h-full w-full" 
+            aspectRatio="hero" 
+          />
         </div>
         <div className="relative z-10 container mx-auto px-4">
           <Reveal width="100%">
@@ -125,7 +133,13 @@ export default function Resort() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
             <div className="w-full lg:w-1/2 rounded-lg overflow-hidden shadow-2xl">
-              <ImagePlaceholder label="[RESORT-DINING]" className="w-full h-[400px] md:h-[500px]" aspectRatio="4/3" />
+              <ImagePlaceholder 
+                label="[RESORT-DINING]" 
+                src="/images/restaurant.jpg"
+                alt="Dining at Miridiya"
+                className="w-full h-[400px] md:h-[500px]" 
+                aspectRatio="4/3" 
+              />
             </div>
             <div className="w-full lg:w-1/2 text-left">
               <p className="nav-link text-gold-primary mb-4">Taste Miridiya</p>
