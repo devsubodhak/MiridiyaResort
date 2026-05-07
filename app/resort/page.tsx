@@ -234,7 +234,7 @@ export default function Resort() {
       </section>
 
       {/* BOOKING INQUIRY FORM */}
-      <section className="py-20 md:py-32 bg-gold-primary overflow-hidden relative">
+      <section id="booking" className="py-20 md:py-32 bg-gold-primary overflow-hidden relative">
         <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-white opacity-5 rounded-full blur-[100px]" />
         <div className="container mx-auto px-4 max-w-4xl relative z-10">
           <div className="text-center mb-12 text-white">

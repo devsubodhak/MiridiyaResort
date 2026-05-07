@@ -38,7 +38,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 2.4 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl leading-[1.1] mb-6 max-w-5xl mx-auto"
+            className="text-2xl sm:text-4xl md:text-6xl lg:text-8xl leading-tight md:leading-[1.1] mb-6 max-w-5xl mx-auto px-2"
           >
             Where the River Whispers and the Forest Breathes
           </motion.h1>

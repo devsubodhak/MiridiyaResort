@@ -41,8 +41,8 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-20 md:h-24">
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative h-12 w-12 md:h-14 md:w-14">
+          <Link href="/" className="flex items-center space-x-2 md:space-x-3 group min-w-0">
+            <div className="relative h-10 w-10 md:h-14 md:w-14 flex-shrink-0">
               <Image 
                 src="/logo.png" 
                 alt="Miridiya Logo" 
@@ -51,9 +51,9 @@ const Navbar = () => {
                 priority 
               />
             </div>
-            <div className="flex flex-col leading-none">
-              <span className="text-white font-playfair text-xl md:text-2xl tracking-wider group-hover:text-gold-light transition-colors">Miridiya</span>
-              <span className="text-gold-light text-[10px] md:text-xs uppercase tracking-[0.15em] font-semibold mt-1">Resort & Restaurant</span>
+            <div className="flex flex-col leading-none truncate">
+              <span className="text-white font-playfair text-lg md:text-2xl tracking-wider group-hover:text-gold-light transition-colors truncate">Miridiya</span>
+              <span className="text-gold-light text-[8px] md:text-xs uppercase tracking-[0.1em] md:tracking-[0.15em] font-semibold mt-0.5 truncate">Resort & Restaurant</span>
             </div>
           </Link>
 
