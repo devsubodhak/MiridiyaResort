@@ -62,16 +62,16 @@ const Gallery = () => {
             </section>
 
             {/* FILTERS */}
-            <section className="py-12 bg-off-white sticky top-[80px] md:top-[96px] z-30 shadow-sm overflow-x-auto">
-                <div className="container mx-auto px-4 flex justify-center space-x-6 whitespace-nowrap scrollbar-hide">
+            <section className="bg-white border-b border-gold-primary/10 sticky top-[80px] md:top-[96px] z-30 shadow-sm overflow-x-auto no-scrollbar">
+                <div className="container mx-auto px-4 py-6 md:py-8 flex justify-start md:justify-center space-x-3 md:space-x-4 min-w-max">
                     {filters.map((filter) => (
                         <button
                             key={filter}
                             onClick={() => setActiveFilter(filter)}
-                            className={`nav-link text-xs pb-2 border-b-2 transition-all ${
+                            className={`px-5 py-2 rounded-full text-[10px] md:text-xs uppercase tracking-widest font-bold transition-all duration-300 border ${
                                 activeFilter === filter 
-                                ? "border-gold-primary text-gold-primary font-bold" 
-                                : "border-transparent text-charcoal opacity-50 hover:opacity-100"
+                                ? "bg-gold-primary text-white border-gold-primary shadow-lg" 
+                                : "bg-transparent text-charcoal border-charcoal/10 hover:border-gold-primary/50"
                             }`}
                         >
                             {filter}

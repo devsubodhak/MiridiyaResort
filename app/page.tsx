@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full">
       {/* HERO SECTION */}
-      <section className="relative h-screen flex items-center justify-center bg-forest-dark overflow-hidden">
+      <section className="relative h-screen min-h-[600px] md:h-screen flex items-center justify-center bg-forest-dark overflow-hidden">
         {/* Hero Background Placeholder */}
         <div className="absolute inset-0 opacity-40">
            <ImagePlaceholder 
@@ -25,12 +25,12 @@ export default function Home() {
            <div className="absolute inset-0 bg-gradient-to-t from-forest-dark via-transparent to-transparent opacity-90" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 text-center text-white">
+        <div className="relative z-10 container mx-auto px-6 text-center text-white pt-20">
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2.2 }}
-            className="nav-link text-gold-light mb-4 md:mb-6 uppercase tracking-widest text-sm font-semibold"
+            className="nav-link text-gold-light mb-4 md:mb-6 uppercase tracking-widest text-[10px] md:text-xs font-semibold"
           >
             Nawata · Yatiyantota · Sri Lanka
           </motion.p>
@@ -38,7 +38,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 2.4 }}
-            className="text-4xl md:text-6xl lg:text-8xl leading-none mb-6 max-w-5xl mx-auto"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl leading-[1.1] mb-6 max-w-5xl mx-auto"
           >
             Where the River Whispers and the Forest Breathes
           </motion.h1>
@@ -77,36 +77,36 @@ export default function Home() {
       </section>
 
       {/* BRAND INTRO STRIP */}
-      <section className="bg-cream py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+      <section className="bg-cream py-12 md:py-24">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center">
             <Reveal delay={0.1}>
-              <div className="flex flex-col items-center space-y-4">
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-gold-primary shadow-sm">
-                  <Leaf size={32} />
+              <div className="flex flex-col items-center space-y-3">
+                <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center text-gold-primary shadow-sm">
+                  <Leaf size={28} />
                 </div>
-                <h3 className="text-2xl font-playfair text-forest-dark">Nature & Wilderness</h3>
-                <p className="text-charcoal opacity-80 max-w-[280px]">Kelani River valley, rainforest, and local migratory birds.</p>
+                <h3 className="text-xl md:text-2xl font-playfair text-forest-dark">Nature & Wilderness</h3>
+                <p className="text-sm text-charcoal opacity-80 max-w-[280px]">Kelani River valley, rainforest, and local migratory birds.</p>
               </div>
             </Reveal>
             
             <Reveal delay={0.3}>
-              <div className="flex flex-col items-center space-y-4 border-y md:border-y-0 md:border-x border-gold-dark/10 py-12 md:py-0">
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-gold-primary shadow-sm">
-                  <ForkKnife size={32} />
+              <div className="flex flex-col items-center space-y-3 border-y md:border-y-0 md:border-x border-gold-dark/10 py-10 md:py-0">
+                <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center text-gold-primary shadow-sm">
+                  <ForkKnife size={28} />
                 </div>
-                <h3 className="text-2xl font-playfair text-forest-dark">Authentic Cuisine</h3>
-                <p className="text-charcoal opacity-80 max-w-[280px]">Traditional Sri Lankan flavours and freshest local ingredients.</p>
+                <h3 className="text-xl md:text-2xl font-playfair text-forest-dark">Authentic Cuisine</h3>
+                <p className="text-sm text-charcoal opacity-80 max-w-[280px]">Traditional Sri Lankan flavours and freshest local ingredients.</p>
               </div>
             </Reveal>
             
             <Reveal delay={0.5}>
-              <div className="flex flex-col items-center space-y-4">
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-gold-primary shadow-sm">
-                  <Compass size={32} />
+              <div className="flex flex-col items-center space-y-3">
+                <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center text-gold-primary shadow-sm">
+                  <Compass size={28} />
                 </div>
-                <h3 className="text-2xl font-playfair text-forest-dark">Adventure</h3>
-                <p className="text-charcoal opacity-80 max-w-[280px]">Rafting, trekking, canyoning, and bird watching.</p>
+                <h3 className="text-xl md:text-2xl font-playfair text-forest-dark">Adventure</h3>
+                <p className="text-sm text-charcoal opacity-80 max-w-[280px]">Rafting, trekking, canyoning, and bird watching.</p>
               </div>
             </Reveal>
           </div>
