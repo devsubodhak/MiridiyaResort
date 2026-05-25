@@ -29,73 +29,75 @@ const Navbar = () => {
   const whatsappURL = "https://wa.me/94763009385?text=Hello%20Miridiya!%20I%20would%20like%20to%20make%20a%20booking%20enquiry.";
 
   return (
-    <motion.nav 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? "bg-forest-dark/95 backdrop-blur-md border-b border-gold-dark/20 py-1" 
-          : "bg-forest-dark/0 py-4"
-      }`}
-    >
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="flex items-center justify-between h-20 md:h-24">
-          <Link href="/" className="flex items-center space-x-2 md:space-x-3 group min-w-0">
-            <div className="relative h-10 w-10 md:h-14 md:w-14 flex-shrink-0">
-              <Image 
-                src="/logo.png" 
-                alt="Miridiya Logo" 
-                fill 
-                className="object-contain"
-                priority 
-              />
-            </div>
-            <div className="flex flex-col leading-none truncate">
-              <span className="text-white font-playfair text-lg md:text-2xl tracking-wider group-hover:text-gold-light transition-colors truncate">Miridiya</span>
-              <span className="text-gold-light text-[8px] md:text-xs uppercase tracking-[0.1em] md:tracking-[0.15em] font-semibold mt-0.5 truncate">Resort & Restaurant</span>
-            </div>
-          </Link>
+    <>
+      <motion.nav 
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled 
+            ? "bg-forest-dark/95 backdrop-blur-md border-b border-gold-dark/20 py-1" 
+            : "bg-forest-dark/0 py-4"
+        }`}
+      >
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="flex items-center justify-between h-20 md:h-24">
+            <Link href="/" className="flex items-center space-x-2 md:space-x-3 group min-w-0">
+              <div className="relative h-10 w-10 md:h-14 md:w-14 flex-shrink-0">
+                <Image 
+                  src="/logo.png" 
+                  alt="Miridiya Logo" 
+                  fill 
+                  className="object-contain"
+                  priority 
+                />
+              </div>
+              <div className="flex flex-col leading-none truncate">
+                <span className="text-white font-playfair text-lg md:text-2xl tracking-wider group-hover:text-gold-light transition-colors truncate">Miridiya</span>
+                <span className="text-gold-light text-[8px] md:text-xs uppercase tracking-[0.1em] md:tracking-[0.15em] font-semibold mt-0.5 truncate">Resort & Restaurant</span>
+              </div>
+            </Link>
 
-          {/* Desktop Nav Links */}
-          <div className="hidden lg:flex items-center space-x-6">
-            {navLinks.map((link) => (
-              <Link 
-                key={link.name} 
-                href={link.href}
-                className="nav-link text-cream hover:text-gold-light transition-colors"
+            {/* Desktop Nav Links */}
+            <div className="hidden lg:flex items-center space-x-6">
+              {navLinks.map((link) => (
+                <Link 
+                  key={link.name} 
+                  href={link.href}
+                  className="nav-link text-cream hover:text-gold-light transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+
+            {/* CTA Button */}
+            <div className="hidden md:flex">
+              <a 
+                href={whatsappURL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gold-primary hover:bg-gold-dark text-white px-6 py-3 transition-all tracking-wider text-xs uppercase font-semibold rounded-sm"
               >
-                {link.name}
-              </Link>
-            ))}
-          </div>
+                Book via WhatsApp
+              </a>
+            </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex">
-            <a 
-              href={whatsappURL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gold-primary hover:bg-gold-dark text-white px-6 py-3 transition-all tracking-wider text-xs uppercase font-semibold rounded-sm"
-            >
-              Book via WhatsApp
-            </a>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center">
-            <button 
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-cream p-2"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
-            </button>
+            {/* Mobile Menu Button */}
+            <div className="lg:hidden flex items-center">
+              <button 
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-cream p-2"
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </motion.nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay (Sibling to motion.nav to avoid CSS transform containing block constraints) */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
@@ -103,7 +105,7 @@ const Navbar = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="lg:hidden fixed inset-0 bg-forest-dark/60 backdrop-blur-md z-40"
+              className="lg:hidden fixed inset-0 bg-forest-dark/60 backdrop-blur-md z-50"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div 
@@ -111,7 +113,7 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="lg:hidden fixed right-0 top-0 bottom-0 w-[80%] max-w-sm bg-forest-dark z-50 shadow-2xl flex flex-col p-8 pt-24"
+              className="lg:hidden fixed right-0 top-0 bottom-0 w-[80%] max-w-sm bg-forest-dark z-[60] shadow-2xl flex flex-col p-8 pt-24"
             >
               <button 
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -158,7 +160,7 @@ const Navbar = () => {
           </>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </>
   );
 };
 

@@ -43,7 +43,7 @@ Notes: ${formData.notes}`;
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-8 md:p-12 rounded-lg shadow-xl border border-gold-dark/10 space-y-6">
+    <form onSubmit={handleSubmit} className="bg-white p-6 sm:p-8 md:p-12 rounded-lg shadow-xl border border-gold-dark/10 space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex flex-col space-y-2">
           <label className="text-xs uppercase tracking-widest font-bold text-forest-dark">Name</label>

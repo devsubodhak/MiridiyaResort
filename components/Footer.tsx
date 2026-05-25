@@ -54,7 +54,6 @@ const Footer = () => {
                 <div className="flex flex-col">
                   <span>+94 36 7855 700</span>
                   <span>+94 76 3009 385</span>
-                  <span>+94 76 3857 733</span>
                 </div>
               </div>
               <div className="flex items-center space-x-3 text-sm opacity-80">

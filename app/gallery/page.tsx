@@ -15,7 +15,6 @@ const Gallery = () => {
         { id: 3, label: "Riverside Room", group: "Resort & Rooms", src: "/images/room7.jpeg" },
         { id: 4, label: "Luxury Suite", group: "Resort & Rooms", src: "/images/room8.jpeg" },
         { id: 5, label: "Resort View", group: "Resort & Rooms", src: "/resort-preview.jpg" },
-        { id: 6, label: "Exterior View", group: "Resort & Rooms", src: "/images/rooms.jpg" },
         { id: 7, label: "Sri Lankan Breakfast", group: "Kitchen & Food", src: "/images/breakfast.jpg" },
         { id: 8, label: "Traditional Dinner", group: "Kitchen & Food", src: "/images/restaurant.jpg" },
         { id: 9, label: "Dining Area", group: "Kitchen & Food", src: "/restaurant-preview.png" },

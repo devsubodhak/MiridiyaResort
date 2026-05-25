@@ -9,7 +9,6 @@ const BookingForm = () => {
     checkin: "",
     checkout: "",
     guests: "1",
-    roomtype: "AC",
     requests: "",
   });
 
@@ -20,7 +19,7 @@ Name: ${formData.name}
 Check-in: ${formData.checkin}
 Check-out: ${formData.checkout}
 Guests: ${formData.guests}
-Room Type: ${formData.roomtype}
+Room Type: Air-Conditioned
 Requests: ${formData.requests}`;
     
     window.open(buildWhatsAppURL(message), "_blank");
@@ -31,7 +30,7 @@ Requests: ${formData.requests}`;
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-8 md:p-12 rounded-lg shadow-xl border border-gold-dark/10 space-y-6">
+    <form onSubmit={handleSubmit} className="bg-white p-6 sm:p-8 md:p-12 rounded-lg shadow-xl border border-gold-dark/10 space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex flex-col space-y-2">
           <label className="text-xs uppercase tracking-widest font-bold text-forest-dark">Full Name</label>
@@ -81,19 +80,7 @@ Requests: ${formData.requests}`;
         </div>
       </div>
       
-      <div className="flex flex-col space-y-2">
-        <label className="text-xs uppercase tracking-widest font-bold text-forest-dark">Room Type</label>
-        <select 
-          name="roomtype" 
-          value={formData.roomtype}
-          onChange={handleChange}
-          className="w-full px-4 py-3 rounded-sm border border-gold-dark/20 focus:outline-none focus:ring-1 focus:ring-gold-primary"
-        >
-          <option value="AC">Air-Conditioned</option>
-          <option value="Non-AC">Non-Air-Conditioned</option>
-          <option value="No Preference">No Preference</option>
-        </select>
-      </div>
+
 
       <div className="flex flex-col space-y-2">
         <label className="text-xs uppercase tracking-widest font-bold text-forest-dark">Special Requests (Optional)</label>

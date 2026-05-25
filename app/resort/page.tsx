@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Wifi, Tv, Coffee, Utensils, Plane, Car, Flame, ShoppingBag, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Coffee, Utensils, Plane, Car, Flame, ShoppingBag, ChevronLeft, ChevronRight } from "lucide-react";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import BookingForm from "@/components/BookingForm";
 import { Reveal } from "@/components/Reveal";
@@ -111,26 +111,22 @@ export default function Resort() {
     {
       id: "AC",
       label: "AC Room",
-      images: ["/images/rooms.jpg", "/images/room5.jpeg", "/images/room6.jpeg"],
+      images: [
+        "/images/room5.jpeg",
+        "/images/room6.jpeg",
+        "/images/room7.jpeg",
+        "/images/room8.jpeg",
+        "/images/room9.jpeg",
+        "/images/rooms3.jpeg"
+      ],
       title: "Air-Conditioned Rooms",
       price: "Enquire for rates",
-      desc: "Comfortable AC rooms with satellite TV, complimentary Wi-Fi, private bathroom, and room service. Perfectly cooled for your comfort after a day of adventure.",
-      features: ["AC", "Ensuite", "TV", "Wi-Fi"]
-    },
-    {
-      id: "NAC",
-      label: "Non-AC Room",
-      images: ["/images/rooms2.jpg", "/images/room7.jpeg", "/images/room8.jpeg", "/images/room9.jpeg", "/images/rooms3.jpeg"],
-      title: "Non-Air-Conditioned Rooms",
-      price: "Enquire for rates",
-      desc: "Naturally cool rooms designed to immerse you in the forest ambiance, with all essential amenities and large windows to enjoy the river breeze.",
-      features: ["Natural Cool", "Ensuite", "TV", "Wi-Fi"]
+      desc: "Comfortable AC rooms with private bathroom and room service. Perfectly cooled for your comfort after a day of adventure.",
+      features: ["AC", "Ensuite"]
     }
   ];
 
   const amenities = [
-    { icon: Wifi, label: "Complimentary Wi-Fi" },
-    { icon: Tv, label: "Satellite TV" },
     { icon: Utensils, label: "24hr Room Service" },
     { icon: Coffee, label: "On-Site Restaurant" },
     { icon: Plane, label: "Travel Assistance" },
@@ -173,7 +169,7 @@ export default function Resort() {
             <h2 className="text-4xl md:text-5xl text-forest-dark">Accommodation</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+          <div className="max-w-3xl mx-auto">
             {rooms.map((room, i) => (
               <RoomCard key={room.id} room={room} i={i} />
             ))}

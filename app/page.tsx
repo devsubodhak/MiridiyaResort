@@ -135,7 +135,7 @@ export default function Home() {
                 <p className="nav-link text-gold-primary mb-4">The Resort</p>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl text-forest-dark mb-8">Miridiya Holiday Resort</h2>
                 <p className="text-lg text-charcoal leading-relaxed mb-10 max-w-xl">
-                  Set along the Kelani River in Nawata, our resort offers comfortable air-conditioned and non-air-conditioned rooms with satellite TV, complimentary Wi-Fi, and 24-hour room service — all surrounded by the sounds of nature.
+                  Set along the Kelani River in Nawata, our resort offers comfortable air-conditioned rooms with 24-hour room service — all surrounded by the sounds of nature.
                 </p>
                 <Link 
                   href="/resort" 

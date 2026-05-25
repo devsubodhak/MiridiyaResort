@@ -12,7 +12,7 @@ const WhatsAppFloat = () => {
             aria-label="Contact us on WhatsApp"
         >
             <Phone size={28} className="fill-current" />
-            <span className="absolute right-full mr-4 bg-white text-charcoal px-4 py-2 rounded-lg text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-lg">
+            <span className="absolute right-full mr-4 bg-white text-charcoal px-4 py-2 rounded-lg text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-lg hidden md:block">
                 Need help? Chat with us!
             </span>
         </a>

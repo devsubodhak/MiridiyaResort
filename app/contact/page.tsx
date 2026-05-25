@@ -49,8 +49,7 @@ export default function Contact() {
         { q: "Is the restaurant open to non-guests?", a: "Yes — Miridiya Restaurant welcomes walk-in visitors. We recommend calling ahead or sending a WhatsApp for larger parties." },
         { q: "Do you cater to dietary requirements?", a: "Yes — vegan, vegetarian, gluten-free, and allergy-free options are available on request. Just let us know in advance!" },
         { q: "How far are you from Kithulgala?", a: "We are located approximately 15–25 minutes by road from Kithulgala town, depending on traffic conditions." },
-        { q: "Can you arrange activities?", a: "Yes — we assist with rafting, trekking, bird watching, canyoning, and more through our trusted network of guides and staff." },
-        { q: "Is Wi-Fi available?", a: "Complimentary Wi-Fi is provided for all resort guests in communal areas and rooms." }
+        { q: "Can you arrange activities?", a: "Yes — we assist with rafting, trekking, bird watching, canyoning, and more through our trusted network of guides and staff." }
     ];
 
     return (
@@ -96,7 +95,6 @@ export default function Contact() {
                                                 <p className="nav-link text-xs pb-1 opacity-50">Phone & WhatsApp</p>
                                                 <p className="text-lg font-semibold text-forest-dark">+94 36 7855 700</p>
                                                 <p className="text-lg font-semibold text-forest-dark">+94 76 3009 385</p>
-                                                <p className="text-lg font-semibold text-forest-dark">+94 76 3857 733</p>
                                             </div>
                                         </div>
                                         <div className="flex items-start space-x-6">
@@ -135,7 +133,7 @@ export default function Contact() {
                             </Reveal>
 
                             <Reveal delay={0.4}>
-                                <div className="p-10 bg-forest-mid text-white rounded-lg shadow-xl relative overflow-hidden group">
+                                <div className="p-6 sm:p-10 bg-forest-mid text-white rounded-lg shadow-xl relative overflow-hidden group">
                                     <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
                                         <ExternalLink size={100} />
                                     </div>
